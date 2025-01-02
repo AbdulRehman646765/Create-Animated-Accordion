@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+}
+html {
+  color: #24305f;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fffdfb;
+  padding: 50px 0 30px;
+}
+.accordion {
+  width: 50%;
+  margin: 70px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.item {
+  background: #fffdfb;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 30px;
+  align-items: center;
+  padding: 30px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+}
+.item .number {
+  font-size: 32px;
+}
+.item h2 {
+  font-size: 24px;
+  text-transform: capitalize;
+}
+.item i {
+  width: 24px;
+  height: 24px;
+  color: #1864ab;
+  font-size: 18px;
+}
+.item .close-icon {
+  display: none;
+}
+.item .close-icon.active {
+  display: block;
+}
+.item .open-icon.active {
+  display: none;
+}
+.hidden-box {
+  display: none;
+  grid-column: 2/3;
+}
+.hidden-box p {
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  word-spacing: 3px;
+}
+.hidden-box ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.hidden-box ul li {
+  line-height: 1.5;
+  margin-left: 16px;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  word-spacing: 3px;
+}
+.item.active {
+  position: relative;
+}
+.item.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  border-top: 3px solid #1864ab;
+  animation: border-animate 1.5s linear forwards;
+}
+.item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  border-top: 3px solid #1864ab;
+  animation: border-animate 1.5s linear 1.5s forwards;
+}
+@keyframes border-animate {
+  100% {
+    width: 100%;
+  }
+}
+.item.active .hidden-box {
+  display: block;
+}
+.made-with {
+  font-size: 18px;
+  color: #858585;
+  font-weight: 500;
+  margin: 20px;
+}
+.made-with .heart {
+  text-shadow: 0 0 10px red;
+  animation: heart-beat 2s ease-in-out infinite;
+}
+@keyframes heart-beat {
+  20%{
+    text-shadow: 0 0 5px red;
+  }
+  40%{
+    text-shadow: 0 0 10px red;
+  }
+  60%{
+    text-shadow: 0 0 5px red;
+  }
+  80%{
+    text-shadow: 0 0 10px red;
+  }
+  100%{
+    text-shadow: 0 0 5px red;
+  }
+}
+.made-with .my-name {
+  color: #48a300;
+  font-weight: 700;
+}
